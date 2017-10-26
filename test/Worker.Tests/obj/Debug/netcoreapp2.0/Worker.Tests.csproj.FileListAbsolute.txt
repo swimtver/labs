@@ -1,0 +1,16 @@
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.Tests.deps.json
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.Tests.runtimeconfig.json
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.Tests.runtimeconfig.dev.json
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.Tests.dll
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.Tests.pdb
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.dll
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\Worker.pdb
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.csproj.CoreCompileInputs.cache
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.AssemblyInfoInputs.cache
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.AssemblyInfo.cs
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.dll
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.pdb
+D:\_code\git\swimtver\labs\test\Worker.Tests\obj\Debug\netcoreapp2.0\Worker.Tests.csprojResolveAssemblyReference.cache
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+D:\_code\git\swimtver\labs\test\Worker.Tests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll

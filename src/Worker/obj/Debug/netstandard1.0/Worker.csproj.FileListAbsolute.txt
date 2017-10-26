@@ -1,0 +1,4 @@
+D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.0\Worker.csprojResolveAssemblyReference.cache
+D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.0\Worker.csproj.CoreCompileInputs.cache
+D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.0\Worker.AssemblyInfoInputs.cache
+D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.0\Worker.AssemblyInfo.cs
