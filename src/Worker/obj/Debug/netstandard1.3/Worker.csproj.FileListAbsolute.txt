@@ -1,9 +1,0 @@
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.csprojResolveAssemblyReference.cache
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.csproj.CoreCompileInputs.cache
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.AssemblyInfoInputs.cache
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.AssemblyInfo.cs
-D:\_code\git\swimtver\labs\src\Worker\bin\Debug\netstandard1.3\Worker.deps.json
-D:\_code\git\swimtver\labs\src\Worker\bin\Debug\netstandard1.3\Worker.dll
-D:\_code\git\swimtver\labs\src\Worker\bin\Debug\netstandard1.3\Worker.pdb
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.dll
-D:\_code\git\swimtver\labs\src\Worker\obj\Debug\netstandard1.3\Worker.pdb
