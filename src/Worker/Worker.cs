@@ -13,21 +13,21 @@ namespace Worker
             _executor = executor;
         }
 
-        public IPromise MakeRemoteRequest(Request request)
+        public IPromise<Response> MakeRemoteRequest(Request request)
         {
-            if(request == null) throw new ArgumentNullException(nameof(request));
+            if (request == null) throw new ArgumentNullException(nameof(request));
             try
             {
-                _executor.Send(request);
+                var task = _executor.Send(request);
+                var promise = task.ToPromise();
+                return promise;
             }
-            catch
+            catch(Exception ex)
             {
+                var rejectedPromise = new Promise<Response>();
+                rejectedPromise.Reject(ex);
+                return rejectedPromise;
             }
-            finally
-            {
-                
-            }
-            return new Promise();
         }
     }
 }

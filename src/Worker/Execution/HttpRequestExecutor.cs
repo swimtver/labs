@@ -14,13 +14,13 @@ namespace Worker.Execution
 
         public async Task<Response> Send(Request request)
         {
-            var responseMessage = await _httpClient.SendAsync(Create(request));
-            return new Response();
+            var responseMessage = await _httpClient.SendAsync(Create(request)).ConfigureAwait(false);
+            return new Response((int)responseMessage.StatusCode);
         }
 
         private HttpRequestMessage Create(Request request)
         {
-            return null;
+            return new HttpRequestMessage(new HttpMethod(request.Method), request.Uri);
         }
     }
 }

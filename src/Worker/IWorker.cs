@@ -5,6 +5,6 @@ namespace Worker
 {
     public interface IWorker
     {
-        IPromise MakeRemoteRequest(Request request);
+        IPromise<Response> MakeRemoteRequest(Request request);
     }
 }
