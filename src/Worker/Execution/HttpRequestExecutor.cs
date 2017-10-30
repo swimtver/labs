@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -5,17 +6,24 @@ namespace Worker.Execution
 {
     public class HttpRequestExecutor : IRequestExecutor
     {
-        private readonly HttpClient _httpClient;
-
-        public HttpRequestExecutor(HttpClient httpClient)
+        private readonly HttpClient _httpClient = new HttpClient
         {
-            _httpClient = httpClient;
-        }
+            Timeout = TimeSpan.FromSeconds(3)
+        };
 
         public async Task<Response> Send(Request request)
         {
-            var responseMessage = await _httpClient.SendAsync(Create(request)).ConfigureAwait(false);
-            return new Response((int)responseMessage.StatusCode);
+            var responseMessage = await _httpClient.SendAsync(Create(request), HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
+        
+            var statusCode = (int)responseMessage.StatusCode;
+            var contentType = responseMessage.Content.Headers.ContentType.MediaType;
+            var content = await responseMessage.Content.ReadAsStringAsync();
+
+            return new Response(statusCode)
+            {
+                ContentType = contentType,
+                Content = content
+            };
         }
 
         private HttpRequestMessage Create(Request request)

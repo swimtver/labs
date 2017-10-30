@@ -8,5 +8,7 @@
         }
 
         public int StatusCode { get; }
+        public string ContentType { get; set; }
+        public string Content { get; set; }
     }
 }

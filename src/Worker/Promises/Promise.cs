@@ -10,20 +10,26 @@ namespace Worker.Promises
         private PromiseStates _state;
         private Exception _exception;
         private T _value;
-        
+
         public IPromise<T> Then(Action<T> onResolved, Action<Exception> onRejected = null)
         {
-            if (_state == PromiseStates.Pending)
+            //if (_state == PromiseStates.Pending)
+            //{
+            //    AddHandler(onResolved);
+            //    _onRejected = onRejected;
+            //    return this;
+            //}
+            //if (_state == PromiseStates.Resolved)
+            //    onResolved?.Invoke(_value);
+            //else
+            //    onRejected?.Invoke(_exception);
+            //return this;
+
+            return Then(val =>
             {
-                AddHandler(onResolved);
-                _onRejected = onRejected;
-                return this;
-            }
-            if (_state == PromiseStates.Resolved)
-                onResolved?.Invoke(_value);
-            else
-                onRejected?.Invoke(_exception);
-            return this;
+                onResolved?.Invoke(val);
+                return val;
+            }, onRejected);
         }
 
         public IPromise<U> Then<U>(Func<T, U> onResolved, Action<Exception> onRejected = null)
@@ -33,15 +39,31 @@ namespace Worker.Promises
             {
                 AddHandler(value =>
                 {
-                    var transformValue = onResolved.Invoke(value);
-                    promise.Resolve(transformValue);
+                    try
+                    {
+                        var transformValue = onResolved.Invoke(value);
+                        promise.Resolve(transformValue);
+                    }
+                    catch (Exception ex)
+                    {
+                        promise.Reject(ex);
+                    }
                 });
                 _onRejected = onRejected;
-                return promise;
             }
             if (_state == PromiseStates.Resolved)
-                promise.Resolve(onResolved.Invoke(_value));
-            else
+            {
+                try
+                {
+                    var transformValue = onResolved.Invoke(_value);
+                    promise.Resolve(transformValue);
+                }
+                catch (Exception ex)
+                {
+                    promise.Reject(ex);
+                }
+            }
+            else if (_state == PromiseStates.Rejected)
             {
                 onRejected?.Invoke(_exception);
                 promise.Reject(_exception);

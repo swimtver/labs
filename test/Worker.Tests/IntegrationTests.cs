@@ -1,5 +1,4 @@
 using System;
-using System.Net.Http;
 using System.Threading;
 using Shouldly;
 using Worker.Execution;
@@ -17,23 +16,32 @@ namespace Worker.Tests
             {
                 running = false;
             }, null, -1, -1);
-            
-            IWorker worker = new Worker(new HttpRequestExecutor(new HttpClient()));
+
+            IWorker worker = new Worker(new HttpRequestExecutor());
+
             var invoked = false;
+            var errorOccured = false;
+
             var promise = worker.MakeRemoteRequest(new Request(new Uri("http://ya.ru"), "GET"));
-            promise.Then(res =>
-            {
-                invoked = true;
-                running = false;
-                res.StatusCode.ShouldBe(200);
-            });
+            promise.Then(
+                res =>
+                {
+                    invoked = true;
+                    running = false;
+                    res.StatusCode.ShouldBe(200);
+                },
+                ex =>
+                {
+                    errorOccured = true;
+                    running = false;
+                });
             timer.Change(2000, -1);
             while (running)
             {
                 Thread.Sleep(10);
             }
             timer.Dispose();
-            invoked.ShouldBeTrue();
+            (invoked || errorOccured).ShouldBeTrue();
         }
     }
 }
